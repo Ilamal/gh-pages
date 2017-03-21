@@ -56,6 +56,12 @@ function keyPressed() {
     //console.log("SPACE");
   }
 }
+function mousePressed(){
+	bird.up();
+	points+=2;
+	document.getElementById("points").innerHTML = "Pisteesi : "+points;
+	console.log("pisteUp");
+}
 function SavePoints(){
     ie_writeFile("Pisteet.txt", pisteet);
 }
