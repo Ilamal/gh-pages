@@ -45,7 +45,7 @@ function draw() {
 }
 
 function keyPressed() {
-  if (key == ' ') {
+  if (key == ' ' || key.keyCode == 13) {
     bird.up();
 	points+=2;
 	document.getElementById("points").innerHTML = "Pisteesi : "+points;
@@ -76,6 +76,7 @@ function Leaderboards() {
     } catch (err) {
       return null;
     }
+	console.log("Reading");
 	document.getElementById("points").innerHTML = "Leaderboards : "+contents;
 }
  
