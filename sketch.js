@@ -1,12 +1,14 @@
-
+import System.IO;
 var points;
 var bird;
 var pipes = [];
+var millis;
 function setup() {
   createCanvas(400, 600);
   bird = new Bird();
   pipes.push(new Pipe());
   points = 0;
+  millis = getMilliseconds();
 }
 
 function draw() {
@@ -41,15 +43,22 @@ function draw() {
 
 }
 
-
 function keyPressed() {
   if (key == ' ') {
     bird.up();
 	points+=2;
 	document.getElementById("points").innerHTML = "Pisteesi : "+points;
 	console.log("pisteUp");
+	if(getMilliseconds()-millis >= 10000)
+		SavePoints();
+		millis = getMilliseconds;
     //console.log("SPACE");
   }
+}
+function SavePoints(){
+	sw = new StreamWriter("Pisteet.txt");
+	sw.write(sketch.points);
+	
 }
 //Contact GitHub API Training Shop Blog About
 //© 2017 GitHub, Inc. Terms Privacy Security Status Help
