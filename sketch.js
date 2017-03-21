@@ -1,4 +1,3 @@
-import System.IO;
 
 var points;
 var bird;
@@ -57,9 +56,16 @@ function keyPressed() {
   }
 }
 function SavePoints(){
-	sw = new StreamWriter("Pisteet.txt");
-	sw.write(sketch.points);
-	sw.Close();
+    ie_writeFile("Pisteet.txt", pisteet);
 }
+var ie_writeFile = function (fname, data) {
+    var fso, fileHandle;
+    fso = new ActiveXObject("Scripting.FileSystemObject");
+    fileHandle = fso.CreateTextFile(fname, true);
+    fileHandle.write(data);
+    fileHandle.close();
+  };
+  
+ 
 //Contact GitHub API Training Shop Blog About
 //© 2017 GitHub, Inc. Terms Privacy Security Status Help
