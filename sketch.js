@@ -1,4 +1,5 @@
-
+var d = new Date();
+var n = d.getTime();
 var points;
 var bird;
 var pipes = [];
@@ -8,7 +9,7 @@ function setup() {
   bird = new Bird();
   pipes.push(new Pipe());
   points = 0;
-  millis = millis();
+  millis = d.getTime();
 }
 
 function draw() {
@@ -49,9 +50,9 @@ function keyPressed() {
 	points+=2;
 	document.getElementById("points").innerHTML = "Pisteesi : "+points;
 	console.log("pisteUp");
-	if(millis()-millis >= 10000)
+	if(d.getTime()-millis >= 10000)
 		SavePoints();
-		millis = millis();
+		millis = d.getTime();
     //console.log("SPACE");
   }
 }
