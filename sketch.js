@@ -8,7 +8,7 @@ function setup() {
   bird = new Bird();
   pipes.push(new Pipe());
   points = 0;
-  millis = getMilliseconds();
+  millis = millis();
 }
 
 function draw() {
@@ -39,7 +39,7 @@ function draw() {
   if (frameCount % 100 == 0) {
     pipes.push(new Pipe());
   }
-
+	Leaderboards();
 
 }
 
@@ -49,9 +49,9 @@ function keyPressed() {
 	points+=2;
 	document.getElementById("points").innerHTML = "Pisteesi : "+points;
 	console.log("pisteUp");
-	if(getMilliseconds()-millis >= 10000)
+	if(millis()-millis >= 10000)
 		SavePoints();
-		millis = getMilliseconds;
+		millis = millis();
     //console.log("SPACE");
   }
 }
@@ -65,7 +65,18 @@ var ie_writeFile = function (fname, data) {
     fileHandle.write(data);
     fileHandle.close();
   };
-  
+function Leaderboards() {
+	try {
+      fso = new ActiveXObject("Scripting.FileSystemObject");
+      var fso, filehandle, contents;
+      filehandle = fso.OpenTextFile(Pisteet.txt, 1);
+      contents = filehandle.ReadAll();
+      filehandle.Close();
+    } catch (err) {
+      return null;
+    }
+	document.getElementById("points").innerHTML = "Leaderboards : "+contents;
+}
  
 //Contact GitHub API Training Shop Blog About
 //© 2017 GitHub, Inc. Terms Privacy Security Status Help
