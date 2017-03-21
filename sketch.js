@@ -1,4 +1,5 @@
 import System.IO;
+
 var points;
 var bird;
 var pipes = [];
@@ -58,7 +59,7 @@ function keyPressed() {
 function SavePoints(){
 	sw = new StreamWriter("Pisteet.txt");
 	sw.write(sketch.points);
-	
+	sw.Close();
 }
 //Contact GitHub API Training Shop Blog About
 //© 2017 GitHub, Inc. Terms Privacy Security Status Help
