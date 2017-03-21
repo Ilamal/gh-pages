@@ -36,11 +36,11 @@ function draw() {
 
   bird.update();
   bird.show();
-
+  Leaderboards();
   if (frameCount % 100 == 0) {
     pipes.push(new Pipe());
   }
-	Leaderboards();
+	
 
 }
 
@@ -63,7 +63,7 @@ function mousePressed(){
 	console.log("pisteUp");
 }
 function SavePoints(){
-    ie_writeFile("Pisteet.txt", pisteet);
+    ie_writeFile("Pisteet.txt", points);
 }
 var ie_writeFile = function (fname, data) {
     var fso, fileHandle;
