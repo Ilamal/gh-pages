@@ -3,13 +3,13 @@ var n = d.getTime();
 var points;
 var bird;
 var pipes = [];
-var millis;
+var time;
 function setup() {
   createCanvas(400, 600);
   bird = new Bird();
   pipes.push(new Pipe());
   points = 0;
-  millis = d.getTime();
+  time = millis();
 }
 
 function draw() {
@@ -50,9 +50,9 @@ function keyPressed() {
 	points+=2;
 	document.getElementById("points").innerHTML = "Pisteesi : "+points;
 	console.log("pisteUp");
-	if(d.getTime()-millis >= 10000)
+	if(millis()-time >= 1000)
 		SavePoints();
-		millis = d.getTime();
+		time = millis();
     //console.log("SPACE");
   }
 }
